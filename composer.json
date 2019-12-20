@@ -1,0 +1,21 @@
+{
+    "name": "afuka/easy-helper",
+    "description": "helper",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "afuka",
+            "email": "yaohui_huang@aliyun.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Afuka\\EasyHelper": "src"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    }
+}
