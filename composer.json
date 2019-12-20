@@ -13,9 +13,6 @@
     "autoload": {
         "psr-4": {
             "Afuka\\EasyHelper": "src"
-        },
-        "files": [
-            "src/helper.php"
-        ]
+        }
     }
 }
