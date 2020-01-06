@@ -1,5 +1,5 @@
 <?php
-namespace Afuka\EasyHelper;
+namespace Afuka\Helper;
 
 /**
  *  url 安全 base64

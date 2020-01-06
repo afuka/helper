@@ -1,6 +1,6 @@
 {
-    "name": "afuka/easy-helper",
-    "description": "helper",
+    "name": "afuka/helper",
+    "description": "帮助类",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -12,7 +12,7 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Afuka\\EasyHelper": "src"
+            "Afuka\\Helper": "src"
         }
     }
 }

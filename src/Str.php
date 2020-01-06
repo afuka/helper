@@ -1,5 +1,5 @@
 <?php
-namespace Afuka\EasyHelper;
+namespace Afuka\Helper;
 
 class Str
 {

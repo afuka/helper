@@ -1,2 +1,2 @@
-# easy-helper 帮助类
+# helper 帮助类
 
