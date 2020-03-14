@@ -48,12 +48,12 @@ class Cipher
         try {
             $str = openssl_encrypt(
                 $data, 
-                $this->method, 
-                $this->key,
-                $this->option,
-                $this->iv
+                self::$method, 
+                self::$key,
+                self::$option,
+                self::$iv
             );
-            $str = $this->safe ? SafeBase64::encode($str) : base64_encode($str);
+            $str = self::$safe ? SafeBase64::encode($str) : base64_encode($str);
             return $str;
         } catch (\Exception $th) {
             return '';
@@ -67,14 +67,14 @@ class Cipher
     public static function decrypt(string $data)
     {
         try{
-            $data = $this->safe ? SafeBase64::decode($data) : base64_decode($data);
+            $data = self::$safe ? SafeBase64::decode($data) : base64_decode($data);
 
             return openssl_decrypt(
                 $data,
-                $this->method, 
-                $this->key,
-                $this->option,
-                $this->iv
+                self::$method, 
+                self::$key,
+                self::$option,
+                self::$iv
             );
         } catch (\Exception $e) {
             return '';
