@@ -30,7 +30,7 @@ class Cipher
         if(empty($this->key)) {
             throw new InvalidArgumentException('undefined encrypt key!');
         }
-
+        $this->method = strtolower($this->method);
         if(
             !in_array($this->method, openssl_get_cipher_methods()) 
             && !in_array($this->method, openssl_get_cipher_methods(true))
@@ -43,17 +43,17 @@ class Cipher
      * 加密
      * @return string 处理过的数据
      */
-    public static function encrypt(string $data)
+    public function encrypt(string $data)
     {
         try {
             $str = openssl_encrypt(
                 $data, 
-                self::$method, 
-                self::$key,
-                self::$option,
-                self::$iv
+                $this->method, 
+                $this->key,
+                $this->option,
+                $this->iv
             );
-            $str = self::$safe ? SafeBase64::encode($str) : base64_encode($str);
+            $str = $this->safe ? SafeBase64::encode($str) : base64_encode($str);
             return $str;
         } catch (\Exception $th) {
             return '';
@@ -64,17 +64,17 @@ class Cipher
      * 解密
      * @return string 加密的字符串不是完整的会返回空字符串值
      */
-    public static function decrypt(string $data)
+    public function decrypt(string $data)
     {
         try{
-            $data = self::$safe ? SafeBase64::decode($data) : base64_decode($data);
+            $data = $this->safe ? SafeBase64::decode($data) : base64_decode($data);
 
             return openssl_decrypt(
                 $data,
-                self::$method, 
-                self::$key,
-                self::$option,
-                self::$iv
+                $this->method, 
+                $this->key,
+                $this->option,
+                $this->iv
             );
         } catch (\Exception $e) {
             return '';
